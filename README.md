@@ -45,6 +45,38 @@ const chat = parseChatGptShareHtml(html);
 - `getChatGptShareId(url)` extracts a share id from `chatgpt.com/share/...` or `chat.openai.com/share/...`.
 - `isChatGptShareUrl(url)` returns whether a URL is a supported public share URL.
 
+## Parsed Shape
+
+`fetchChatGptShare()` and `parseChatGptShareHtml()` return:
+
+```ts
+type ChatGptShareConversation = {
+  shareId: string;
+  aiModel: string;
+  title: string;
+  updatedAt: number | null;
+  replies: ChatGptShareReply[];
+};
+
+type ChatGptShareReply = {
+  authorName: string;
+  type: "user" | "assistant" | "tool";
+  statement: string;
+  createdAt: number | null;
+  assets: ChatGptShareAsset[];
+};
+
+type ChatGptShareAsset = {
+  assetType: "image" | "file";
+  url: string;
+  filename: string;
+  description: string | null;
+  downloadable: boolean;
+};
+```
+
+Timestamps are Unix seconds from the shared conversation payload when present.
+
 ## Notes
 
 This library is intended for personal exports of public ChatGPT shared conversations. It does not access private chats or authenticated APIs.
