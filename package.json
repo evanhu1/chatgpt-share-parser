@@ -1,0 +1,48 @@
+{
+  "name": "chatgpt-share-parser",
+  "version": "0.1.0",
+  "description": "Typescript ChatGPT shared conversation link parser",
+  "type": "module",
+  "packageManager": "pnpm@10.11.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "NOTICE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "keywords": [
+    "chatgpt",
+    "share",
+    "parser",
+    "markdown",
+    "export"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanhu1/chatgpt-share-parser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/evanhu1/chatgpt-share-parser/issues"
+  },
+  "homepage": "https://github.com/evanhu1/chatgpt-share-parser#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
